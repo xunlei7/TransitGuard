@@ -1,0 +1,20 @@
+{
+  "source": "fixture://mta-demo",
+  "observed_at": "2026-08-11T14:00:00+00:00",
+  "alerts": [
+    {
+      "route_id": "A",
+      "header": "A trains are running with delays in both directions.",
+      "description": "A trains are delayed because of a signal problem."
+    }
+  ],
+  "arrivals": [
+    {
+      "route_id": "7",
+      "stop_id": "725N",
+      "arrival_time": "2026-08-11T14:06:00+00:00",
+      "trip_id": "demo-7-1"
+    }
+  ]
+}
+

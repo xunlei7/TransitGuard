@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transitguard"
+version = "0.1.0"
+description = "Evidence-gated question answering over New York City subway data."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "gtfs-realtime-bindings>=1.0.0,<2.0.0",
+]
+
+[project.scripts]
+transitguard = "transitguard.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["transitguard*"]
+
