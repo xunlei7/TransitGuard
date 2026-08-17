@@ -124,8 +124,4 @@ MTA responses are cached in SQLite. A network failure can reuse the last payload
 
 TransitGuard is not affiliated with the MTA. Do not treat its output as a substitute for official MTA guidance.
 
-## Resume description
 
-> Built an evidence-gated question-answering pipeline over MTA GTFS-Realtime feeds that dynamically routes subway status and arrival queries, validates evidence freshness, and abstains on stale or incomplete data. Added SQLite feed caching and a reproducible evaluation harness for answer accuracy and abstention quality.
-
-Replace this description with measured results only after evaluating on a larger dataset.
