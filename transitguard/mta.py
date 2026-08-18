@@ -1,3 +1,7 @@
+# mta.py 把“解析完成的问题”路由到合适的官方 MTA 数据源，
+# 将 GTFS-Realtime protobuf 转换为 TransitGuard 能理解的 Alert、Arrival 和 FeedSnapshot；
+# 它负责收集证据
+
 from __future__ import annotations
 
 import urllib.error

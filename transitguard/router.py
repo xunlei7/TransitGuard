@@ -1,13 +1,19 @@
+# 使用确定性的字符串规则和正则表达式，把用户自然语言转换成标准的 ParsedQuestion
+
 from __future__ import annotations
 
 import re
 
 from .domain import Intent, ParsedQuestion
 
-
+# frozenset 是不可修改的集合，适合保存固定配置
+# 1234567ACEBDFMGJZLNQRW 是定义支持的地铁线路
 SUBWAY_ROUTES = frozenset("1234567ACEBDFMGJZLNQRW")
 
+# 提取数字线路： \b 是单词边界，(?:) 是非捕获组，? 是可选，\s* 是空格 0 次或多次，re.IGNORECASE 忽略大小写
 _NUMBERED_ROUTE = re.compile(r"\b([1-7])(?:\s*(?:train|line))?\b", re.IGNORECASE)
+
+# 提取字母线路
 _LETTERED_ROUTE = re.compile(
     r"\b([ACEBDFMGJZLNQRW])\s+(?:train|line)\b",
     re.IGNORECASE,
@@ -48,7 +54,7 @@ def _extract_route(text: str) -> str | None:
                 return route
     return None
 
-
+# 这里的 * 表示它后面的参数必须使用参数名传递
 def parse_question(text: str, *, stop_id: str | None = None) -> ParsedQuestion:
     clean = " ".join(str(text or "").strip().split())
     lowered = clean.lower()

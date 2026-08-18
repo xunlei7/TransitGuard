@@ -1,3 +1,5 @@
+# 调用本地 Ollama 模型，把用户的自然语言问题解析成结构化的 ParsedQuestion
+
 from __future__ import annotations
 
 import json

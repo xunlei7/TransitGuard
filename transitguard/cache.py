@@ -1,3 +1,5 @@
+# 每个 MTA URL 只保留最新一次成功响应。
+# 重要的是，缓存不保证数据新鲜。mta.py 取出缓存后，仍然将它交给 gate.py 检查 feed 自带的时间戳。如果太旧，系统会拒答
 from __future__ import annotations
 
 import sqlite3
@@ -7,6 +9,10 @@ from pathlib import Path
 
 
 @dataclass(frozen=True)
+
+# 它表示一条从缓存里读出来的记录：
+# payload：MTA protobuf 原始二进制数据；
+# fetched_at：这份数据什么时候下载并写入缓存
 class CachedFeed:
     payload: bytes
     fetched_at: datetime

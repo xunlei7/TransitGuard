@@ -1,3 +1,5 @@
+# CLI 是 Command-Line Interface，也就是命令行界面
+
 from __future__ import annotations
 
 import argparse

@@ -102,15 +102,26 @@ The included six-case fixture is a smoke test, not a benchmark. Resume claims sh
 ## Design
 
 ```text
-transitguard/
-├── router.py      # constrained intent and route parsing
-├── ollama.py      # optional local-model parser with schema validation
-├── mta.py         # GTFS-Realtime retrieval and protobuf parsing
-├── cache.py       # SQLite feed cache and outage fallback
-├── gate.py        # freshness, completeness, and scope checks
-├── pipeline.py    # orchestration
-├── evaluate.py    # reproducible offline evaluation
-└── cli.py         # command-line interface
+TransitGuard/
+├── transitguard/
+│   ├── domain.py       # Shared data models and output contracts
+│   ├── router.py       # Rule-based question parsing
+│   ├── ollama.py       # Optional local LLM parser
+│   ├── mta.py          # MTA retrieval and GTFS-Realtime parsing
+│   ├── cache.py        # SQLite feed cache
+│   ├── gate.py         # Evidence freshness and completeness checks
+│   ├── pipeline.py     # End-to-end orchestration
+│   ├── fixtures.py     # Offline fixture loading
+│   ├── evaluate.py     # Evaluation runner
+│   ├── cli.py          # Command-line interface
+│   └── __main__.py     # python -m transitguard entry point
+├── data/
+│   ├── demo_snapshot.json
+│   └── evaluation.jsonl
+├── tests/
+├── pyproject.toml
+├── README.md
+└── LICENSE
 ```
 
 MTA responses are cached in SQLite. A network failure can reuse the last payload, but the evidence gate still rejects it once its embedded feed timestamp exceeds the freshness threshold. Availability never overrides correctness.

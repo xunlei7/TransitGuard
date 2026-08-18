@@ -1,3 +1,5 @@
+# gate.py 负责判断这些证据是否足够可靠
+
 from __future__ import annotations
 
 from datetime import datetime, timezone

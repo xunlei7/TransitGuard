@@ -1,3 +1,6 @@
+# Fixture 是：为演示或测试准备的固定输入数据。
+# data/demo_snapshot.json 不是实时 MTA 数据，而是一份人为保存的 FeedSnapshot 示例
+
 from __future__ import annotations
 
 import json

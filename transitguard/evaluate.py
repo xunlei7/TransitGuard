@@ -1,3 +1,6 @@
+# 使用 evaluation.jsonl 中的固定案例，检查系统是否在应该回答时回答、在应该拒答时拒答。
+# 它不访问实时 MTA，因此结果可复现
+
 from __future__ import annotations
 
 import json
